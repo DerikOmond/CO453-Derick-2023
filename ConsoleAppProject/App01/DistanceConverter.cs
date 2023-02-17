@@ -11,17 +11,28 @@ namespace ConsoleAppProject.App01
     /// </author>
     public class DistanceConverter
     {
+        private double miles;
+        private double feet;
+
         public void Run()
         {
             PrintHeader();
+            InputMiles();
         }
 
-        public void PrintHeader()
+        private void PrintHeader()
         {
-            Console.WriteLine("=========================================================================================");
-            Console.WriteLine("=========This consol app will allow you to convert between units of measurements=========");
-            Console.WriteLine("=========================================================================================");
+            Console.WriteLine("\n=========================================================================================");
+            Console.WriteLine("======== This consol app will allow you to convert between units of measurements ========");
+            Console.WriteLine("=========================================================================================\n");
             Console.ReadLine();
+        }
+
+        private void InputMiles()
+        {
+            Console.Write("No. of miles: ");
+            String userInputMiles = Console.ReadLine();
+            miles = Convert.ToDouble(userInputMiles);
         }
     }
 }
