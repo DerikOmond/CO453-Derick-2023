@@ -20,13 +20,9 @@ namespace ConsoleAppProject.App01
         {
             PrintHeader();
 
-            InputMiles();
-            ConvertMilesToFeet();
-            OutputFeet();
-
-            InputFeet();
-            ConvertFeetToMiles();
-            OutputMiles();
+            MilesToFeet();
+            
+            FeetToMiles();
 
             Console.ReadLine();
         }
@@ -39,6 +35,20 @@ namespace ConsoleAppProject.App01
             Console.WriteLine("=========================================================================================\n");
             Console.ReadLine();
         }
+        
+        private void MilesToFeet()
+        {
+            InputMiles();
+            ConvertMilesToFeet();
+            OutputFeet();
+        }
+
+        private void FeetToMiles()
+        {
+            InputFeet();
+            ConvertFeetToMiles();
+            OutputMiles();
+        }
 
         private void InputMiles()
         {
@@ -47,6 +57,7 @@ namespace ConsoleAppProject.App01
             miles = Convert.ToDouble(userInputMiles);
         }
 
+        
         private void ConvertMilesToFeet()
         {
             feet = miles * MILES_IN_FEET;
