@@ -34,16 +34,16 @@ namespace ConsoleAppProject.App01
         {
             PromptUser("miles", "feet");
             miles = InputDistance("Enter the number of miles: ");
-            ConvertMilesToFeet();
-            OutputFeet();
+            ConvertUnitValues();
+            OutputDistance(miles, "miles", feet, "feet");
         }
 
         private void FeetToMiles()
         {
             PromptUser("feet", "miles");
             feet = InputDistance("Enter the number of feet: ");
-            ConvertFeetToMiles();
-            OutputMiles();
+            ConvertUnitValues();
+            OutputDistance(feet, "feet", miles, "miles");
         }
 
         private void PrintHeader()
@@ -68,25 +68,15 @@ namespace ConsoleAppProject.App01
         }
 
         
-        private void ConvertMilesToFeet()
+        private void ConvertUnitValues()
         {
             feet = miles * MILES_IN_FEET;
-        }
-
-        private void OutputFeet()
-        {
-            Console.WriteLine("Converted to feet: " + feet);
-        }
-
-        private void ConvertFeetToMiles()
-        {
             miles = feet / MILES_IN_FEET;
         }
 
-        private void OutputMiles()
+        private void OutputDistance(double originalDistanceValue, string originalUnit, double newDistanceValue, string newUnit)
         {
-            Console.WriteLine("converted to miles: " + miles);
+            Console.WriteLine(originalDistanceValue + " " + originalUnit + " is equivalent to " + newDistanceValue + " " + newUnit + "\n");
         }
-
     }
 }
