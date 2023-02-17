@@ -12,13 +12,6 @@ namespace ConsoleAppProject.App01
     {
         public void Run()
         {
-            HelloWorld();
-        }
-
-        public void HelloWorld()
-        {
-            Console.WriteLine("Hello World");
-            Console.ReadLine(); 
         }
     }
 }
