@@ -19,9 +19,14 @@ namespace ConsoleAppProject.App01
         public void Run()
         {
             PrintHeader();
+
             InputMiles();
             ConvertMilesToFeet();
             OutputFeet();
+
+            InputFeet();
+            ConvertFeetToMiles();
+            OutputMiles();
 
             Console.ReadLine();
         }
@@ -30,6 +35,7 @@ namespace ConsoleAppProject.App01
         {
             Console.WriteLine("\n=========================================================================================");
             Console.WriteLine("======== This consol app will allow you to convert between units of measurements ========");
+            Console.WriteLine("========                             By Derick Omondi                            ========");
             Console.WriteLine("=========================================================================================\n");
             Console.ReadLine();
         }
@@ -51,6 +57,22 @@ namespace ConsoleAppProject.App01
             Console.WriteLine("Converted to feet: " + feet);
         }
 
+        private void InputFeet()
+        {
+            Console.Write("No. of feet: ");
+            String userInputFeet = Console.ReadLine();
+            feet = Convert.ToDouble(userInputFeet);
+        }
+
+        private void ConvertFeetToMiles()
+        {
+            miles = feet / MILES_IN_FEET;
+        }
+
+        private void OutputMiles()
+        {
+            Console.WriteLine("converted to miles: " + miles);
+        }
 
     }
 }
