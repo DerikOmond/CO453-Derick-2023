@@ -20,6 +20,10 @@ namespace ConsoleAppProject.App01
         {
             PrintHeader();
             InputMiles();
+            ConvertMilesToFeet();
+            OutputFeet();
+
+            Console.ReadLine();
         }
 
         private void PrintHeader()
@@ -41,5 +45,12 @@ namespace ConsoleAppProject.App01
         {
             feet = miles * MILES_IN_FEET;
         }
+
+        private void OutputFeet()
+        {
+            Console.WriteLine("Converted to feet: " + feet);
+        }
+
+
     }
 }
