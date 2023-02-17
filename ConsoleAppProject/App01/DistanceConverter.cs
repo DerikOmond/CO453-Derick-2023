@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
+using System.Transactions;
 
 namespace ConsoleAppProject.App01
 {
@@ -27,34 +28,43 @@ namespace ConsoleAppProject.App01
             Console.ReadLine();
         }
 
-        private void PrintHeader()
-        {
-            Console.WriteLine("\n=========================================================================================");
-            Console.WriteLine("======== This consol app will allow you to convert between units of measurements ========");
-            Console.WriteLine("========                             By Derick Omondi                            ========");
-            Console.WriteLine("=========================================================================================\n");
-            Console.ReadLine();
-        }
+        
         
         private void MilesToFeet()
         {
-            InputMiles();
+            PromptUser("miles", "feet");
+            miles = InputDistance("Enter the number of miles: ");
             ConvertMilesToFeet();
             OutputFeet();
         }
 
         private void FeetToMiles()
         {
-            InputFeet();
+            PromptUser("feet", "miles");
+            feet = InputDistance("Enter the number of feet: ");
             ConvertFeetToMiles();
             OutputMiles();
         }
 
-        private void InputMiles()
+        private void PrintHeader()
         {
-            Console.Write("No. of miles: ");
-            String userInputMiles = Console.ReadLine();
-            miles = Convert.ToDouble(userInputMiles);
+           Console.WriteLine("\n=========================================================================================");
+           Console.WriteLine("======== This consol app will allow you to convert between units of measurements ========");
+           Console.WriteLine("========                             By Derick Omondi                            ========");
+           Console.WriteLine("=========================================================================================\n");
+           Console.ReadLine();    
+        }
+
+        private void PromptUser(string unit1, string unit2)
+        {
+            Console.WriteLine("You are converting from " + unit1 + " into " + unit2 + ".");
+        }   
+
+        private double InputDistance(String prompt)
+        {
+            Console.Write(prompt);
+            String userInputNum = Console.ReadLine();
+            return Convert.ToDouble(userInputNum);
         }
 
         
@@ -66,13 +76,6 @@ namespace ConsoleAppProject.App01
         private void OutputFeet()
         {
             Console.WriteLine("Converted to feet: " + feet);
-        }
-
-        private void InputFeet()
-        {
-            Console.Write("No. of feet: ");
-            String userInputFeet = Console.ReadLine();
-            feet = Convert.ToDouble(userInputFeet);
         }
 
         private void ConvertFeetToMiles()
