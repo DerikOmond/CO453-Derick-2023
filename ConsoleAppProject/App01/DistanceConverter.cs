@@ -34,7 +34,7 @@ namespace ConsoleAppProject.App01
         {
             PromptUser("miles", "feet");
             miles = InputDistance("Enter the number of miles: ");
-            ConvertUnitValues();
+            ConvertUnitValues("miles", "feet");
             OutputDistance(miles, "miles", feet, "feet");
         }
 
@@ -42,7 +42,7 @@ namespace ConsoleAppProject.App01
         {
             PromptUser("feet", "miles");
             feet = InputDistance("Enter the number of feet: ");
-            ConvertUnitValues();
+            ConvertUnitValues("feet", "miles");
             OutputDistance(feet, "feet", miles, "miles");
         }
 
@@ -66,17 +66,24 @@ namespace ConsoleAppProject.App01
             String userInputNum = Console.ReadLine();
             return Convert.ToDouble(userInputNum);
         }
-
         
-        private void ConvertUnitValues()
+        private void ConvertUnitValues(String unit1, String unit2)
         {
-            feet = miles * MILES_IN_FEET;
-            miles = feet / MILES_IN_FEET;
+            if(unit1.Equals("miles") && unit2.Equals("feet")
+            {
+                feet = miles * MILES_IN_FEET;
+            }
+            
+            if(unit1.Equals("feet") && unit2.Equals("miles"))
+            {
+                miles = feet / MILES_IN_FEET;
+            }
+            
         }
 
         private void OutputDistance(double originalDistanceValue, string originalUnit, double newDistanceValue, string newUnit)
         {
-            Console.WriteLine(originalDistanceValue + " " + originalUnit + " is equivalent to " + newDistanceValue + " " + newUnit + "\n");
+            Console.WriteLine($"{originalDistanceValue} {originalUnit} is equivelent to {newDistanceValue} {newUnit}\n"$);
         }
     }
 }
